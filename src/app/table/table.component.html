@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="">Add New</a>
+</nav>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">firstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Age</th>
+        <th scope="col">State of Origin</th>
+        <th scope="col">Active</th>
+        <th scope="col">createdAt</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dataUser">
+        <td>{{ user?.id }}</td>
+        <td>{{ user?.firstName }}</td>
+        <td>{{ user?.lastName }}</td>
+        <td>{{ user?.age }}</td>
+        <td>{{ user?.stateOfOrigin }}</td>
+        <td>{{ user?.active }}</td>
+        <td>{{ user?.createdAt }}</td>
+        <td>
+          <button class="btn btn-sm btn-info">
+            <i class="fa fa-search"></i> <a  href="/detailpage/{{user.id}}">Details</a>
+          </button>
+          <button class="btn btn-sm btn-warning">
+            <i class="fa fa-edit"></i> <a href="/viewpage/{{user.id}}"> Edit</a>
+          </button>
+          <button class="btn btn-sm btn-danger" (click) = "deleteData(user.id)">
+            <i class="fa fa-remove"></i>Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
